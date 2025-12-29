@@ -1,3 +1,180 @@
-[gd_scene format=3 uid="uid://dnwrkjj31sxiq"]
+[gd_scene load_steps=21 format=3 uid="uid://dnwrkjj31sxiq"]
+
+[ext_resource type="Texture2D" uid="uid://buiwko4sg3nyf" path="res://images/NY_bg.jpeg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://b7prbhrdw3nv0" path="res://images/Isa_b.png" id="2_5vw27"]
+[ext_resource type="Script" uid="uid://43lm43o1hxwb" path="res://isabel.gd" id="2_kek77"]
+[ext_resource type="Texture2D" uid="uid://du0lervk8pryr" path="res://images/Isa_f.png" id="3_kek77"]
+[ext_resource type="Texture2D" uid="uid://b0cun0xhrue7x" path="res://images/music.png" id="4_4c57u"]
+[ext_resource type="Texture2D" uid="uid://n1n58prlanid" path="res://images/tree.png" id="5_efxa6"]
+[ext_resource type="Texture2D" uid="uid://cddrjgnqq1pdn" path="res://images/quiz.png" id="6_dg77c"]
+[ext_resource type="Texture2D" uid="uid://ckw6n3evo67yu" path="res://images/game.png" id="7_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://ccrfj6j0821r2" path="res://images/photos.png" id="8_w48qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vivmo"]
+size = Vector2(44, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cqfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5vw27")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kek77")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaehf"]
+size = Vector2(206.078, 273.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_074og"]
+size = Vector2(21.5749, 18.7709)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
+size = Vector2(337.5, 325)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xsv"]
+size = Vector2(224, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_getpj"]
+size = Vector2(340, 187.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(54, 635)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57u"]
+size = Vector2(52, 651)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(20, 45.4215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg77c"]
+size = Vector2(43.5308, 20.1279)
 
 [node name="Main" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [493.0]
+metadata/_edit_vertical_guides_ = [108.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 543.0
+offset_bottom = 732.0
+texture = ExtResource("1_ig7tw")
+
+[node name="Isabel" type="CharacterBody2D" parent="."]
+script = ExtResource("2_kek77")
+
+[node name="Isa_collision" type="CollisionShape2D" parent="Isabel"]
+position = Vector2(112, 494)
+shape = SubResource("RectangleShape2D_vivmo")
+
+[node name="Isa_animation" type="AnimatedSprite2D" parent="Isabel"]
+position = Vector2(112, 482)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2cqfq")
+animation = &"front"
+
+[node name="speaker" type="Sprite2D" parent="."]
+position = Vector2(433, 611)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_4c57u")
+
+[node name="Area2D" type="Area2D" parent="speaker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="speaker/Area2D"]
+position = Vector2(-10.5162, 3.33337)
+scale = Vector2(1.12725, 1)
+shape = SubResource("RectangleShape2D_yaehf")
+
+[node name="tree" type="Sprite2D" parent="."]
+position = Vector2(401, 154)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_efxa6")
+
+[node name="Area2D" type="Area2D" parent="tree"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tree/Area2D"]
+position = Vector2(6.23926, 23.9484)
+scale = Vector2(13.371, -19.6103)
+shape = SubResource("RectangleShape2D_074og")
+
+[node name="quiz" type="Sprite2D" parent="."]
+position = Vector2(227, 573)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_dg77c")
+
+[node name="Area2D" type="Area2D" parent="quiz"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="quiz/Area2D"]
+position = Vector2(38.75, 27.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cegan")
+
+[node name="game" type="Sprite2D" parent="."]
+position = Vector2(200, 265)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ycdy4")
+
+[node name="Area2D" type="Area2D" parent="game"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game/Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_82xsv")
+
+[node name="photos" type="Sprite2D" parent="."]
+position = Vector2(380, 383)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_w48qg")
+
+[node name="Area2D" type="Area2D" parent="photos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="photos/Area2D"]
+position = Vector2(10.0001, 48.7501)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_getpj")
+
+[node name="leftBoundary" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftBoundary"]
+position = Vector2(30, 367)
+shape = SubResource("RectangleShape2D_kek77")
+
+[node name="rightBoundary" type="Area2D" parent="."]
+position = Vector2(465, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightBoundary"]
+position = Vector2(60, 367)
+shape = SubResource("RectangleShape2D_4c57u")
+
+[node name="topBoundary" type="Area2D" parent="."]
+position = Vector2(530, 18)
+rotation = 1.58956
+scale = Vector2(0.936944, 0.687292)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="topBoundary"]
+position = Vector2(18.3545, 367.07)
+rotation = -0.0217044
+scale = Vector2(2.20713, 13.6788)
+shape = SubResource("RectangleShape2D_efxa6")
+
+[node name="bottomBoundary" type="Area2D" parent="."]
+position = Vector2(538, 670)
+rotation = 1.58956
+scale = Vector2(0.936944, 0.687292)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottomBoundary"]
+position = Vector2(53.3468, 385.729)
+scale = Vector2(1, 32.3498)
+shape = SubResource("RectangleShape2D_dg77c")
+
+[connection signal="body_entered" from="leftBoundary" to="Isabel" method="_on_left_boundary_body_entered"]
+[connection signal="body_entered" from="rightBoundary" to="Isabel" method="_on_right_boundary_body_entered"]
+[connection signal="body_entered" from="topBoundary" to="Isabel" method="_on_top_boundary_body_entered"]
+[connection signal="body_entered" from="bottomBoundary" to="Isabel" method="_on_bottom_boundary_body_entered"]
