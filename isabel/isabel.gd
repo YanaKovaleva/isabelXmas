@@ -5,7 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction1 = 0;
 	# Add the gravity.
 	#if not is_on_floor():
@@ -33,19 +33,19 @@ func _physics_process(delta: float) -> void:
 #	Isabel.position = 110;
 
 
-func _on_left_boundary_body_entered(body: Node2D) -> void:
+func _on_left_boundary_body_entered(_body: Node2D) -> void:
 	velocity.x = 5 * SPEED;
 	move_and_slide()
 
 
-func _on_right_boundary_body_entered(body: Node2D) -> void:
+func _on_right_boundary_body_entered(_body: Node2D) -> void:
 	velocity.x = -5 * SPEED;
 	move_and_slide()
 
-func _on_top_boundary_body_entered(body: Node2D) -> void:
-	velocity.y = 15 * SPEED;
+func _on_top_boundary_body_entered(_body: Node2D) -> void:
+	velocity.y = 5 * SPEED;
 	move_and_slide()
 
-func _on_bottom_boundary_body_entered(body: Node2D) -> void:
-	velocity.y = -15 * SPEED;
+func _on_bottom_boundary_body_entered(_body: Node2D) -> void:
+	velocity.y = -5 * SPEED;
 	move_and_slide()

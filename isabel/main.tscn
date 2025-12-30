@@ -15,6 +15,12 @@
 [ext_resource type="Script" uid="uid://3qb1ikcwchqa" path="res://game.gd" id="12_yaehf"]
 [ext_resource type="Script" uid="uid://nl363y1pqnb0" path="res://photos.gd" id="14_074og"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xsv"]
+size = Vector2(224, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_getpj"]
+size = Vector2(345, 247.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vivmo"]
 size = Vector2(44, 102)
 
@@ -46,12 +52,6 @@ size = Vector2(21.5749, 18.7709)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cegan"]
 size = Vector2(337.5, 325)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xsv"]
-size = Vector2(224, 326)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_getpj"]
-size = Vector2(345, 247.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
 size = Vector2(54, 635)
 
@@ -72,6 +72,31 @@ metadata/_edit_vertical_guides_ = [108.0]
 offset_right = 543.0
 offset_bottom = 732.0
 texture = ExtResource("1_ig7tw")
+
+[node name="game" type="Sprite2D" parent="."]
+position = Vector2(200, 265)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ycdy4")
+script = ExtResource("12_yaehf")
+
+[node name="Area2D" type="Area2D" parent="game"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="game/Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_82xsv")
+
+[node name="photos" type="Sprite2D" parent="."]
+position = Vector2(380, 383)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_w48qg")
+script = ExtResource("14_074og")
+
+[node name="Area2D" type="Area2D" parent="photos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="photos/Area2D"]
+position = Vector2(-12.4998, 43.7501)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_getpj")
 
 [node name="Isabel" type="CharacterBody2D" parent="."]
 script = ExtResource("2_kek77")
@@ -126,31 +151,6 @@ position = Vector2(38.75, 27.5)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cegan")
 
-[node name="game" type="Sprite2D" parent="."]
-position = Vector2(200, 265)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_ycdy4")
-script = ExtResource("12_yaehf")
-
-[node name="Area2D" type="Area2D" parent="game"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/Area2D"]
-position = Vector2(0, 13)
-shape = SubResource("RectangleShape2D_82xsv")
-
-[node name="photos" type="Sprite2D" parent="."]
-position = Vector2(380, 383)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("8_w48qg")
-script = ExtResource("14_074og")
-
-[node name="Area2D" type="Area2D" parent="photos"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="photos/Area2D"]
-position = Vector2(-12.4998, 43.7501)
-scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_getpj")
-
 [node name="leftBoundary" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftBoundary"]
@@ -185,12 +185,16 @@ position = Vector2(53.3468, 385.729)
 scale = Vector2(1, 32.3498)
 shape = SubResource("RectangleShape2D_dg77c")
 
-[connection signal="body_entered" from="speaker/Area2D" to="speaker" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="speaker/Area2D" to="speaker" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="quiz/Area2D" to="quiz" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="quiz/Area2D" to="quiz" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="game/Area2D" to="game" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="game/Area2D" to="game" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="photos/Area2D" to="photos" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="photos/Area2D" to="photos" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="speaker/Area2D" to="speaker" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="speaker/Area2D" to="speaker" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="tree/Area2D" to="tree" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="tree/Area2D" to="tree" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="quiz/Area2D" to="quiz" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="quiz/Area2D" to="quiz" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="leftBoundary" to="Isabel" method="_on_left_boundary_body_entered"]
 [connection signal="body_entered" from="rightBoundary" to="Isabel" method="_on_right_boundary_body_entered"]
 [connection signal="body_entered" from="topBoundary" to="Isabel" method="_on_top_boundary_body_entered"]
