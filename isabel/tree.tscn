@@ -34,7 +34,7 @@ animations = [{
 "duration": 4.0,
 "texture": ExtResource("7_fkc4b")
 }, {
-"duration": 4.0,
+"duration": 6.0,
 "texture": ExtResource("8_nl04x")
 }],
 "loop": true,
@@ -47,5 +47,5 @@ animations = [{
 [node name="endTree" type="AnimatedSprite2D" parent="."]
 position = Vector2(271, 363)
 sprite_frames = SubResource("SpriteFrames_y5e6e")
-frame_progress = 0.63779
+frame_progress = 0.0905653
 script = ExtResource("9_bgygo")
