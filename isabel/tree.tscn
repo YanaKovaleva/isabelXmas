@@ -47,5 +47,5 @@ animations = [{
 [node name="endTree" type="AnimatedSprite2D" parent="."]
 position = Vector2(271, 363)
 sprite_frames = SubResource("SpriteFrames_y5e6e")
-frame_progress = 0.0905653
+frame_progress = 0.667459
 script = ExtResource("9_bgygo")
