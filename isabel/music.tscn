@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://dqaexabvbgwhq"]
+[gd_scene load_steps=3 format=3 uid="uid://dqaexabvbgwhq"]
+
+[ext_resource type="Texture2D" uid="uid://fd45yt8ly43e" path="res://images/isabelSongs.png" id="1_5vxup"]
+[ext_resource type="Script" uid="uid://dbwldyurfjtr4" path="res://songs_scene.gd" id="2_w5q55"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="songsScene" type="Sprite2D" parent="."]
+position = Vector2(272, 366)
+scale = Vector2(0.882746, 0.919418)
+texture = ExtResource("1_5vxup")
+script = ExtResource("2_w5q55")
